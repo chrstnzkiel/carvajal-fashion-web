@@ -1,0 +1,309 @@
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+  z-index: 1000;
+  padding: 10px;
+}
+
+.menu-container {
+  position: fixed;
+  display: inline-block;
+}
+
+.menu-checkbox {
+  display: none;
+}
+
+.menu-icon {
+  cursor: pointer;
+  padding: 10px;
+  display: block;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #fff; /* Changed to white for better visibility on gray background */
+  margin: 5px 0;
+}
+
+.menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: rgba(51, 51, 51, 0.9); /* Semi-transparent dark background */
+  min-width: 160px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.menu-checkbox:checked ~ .menu {
+  display: block;
+}
+
+.menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu ul li {
+  padding: 10px;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+}
+
+.menu ul li a:hover {
+  background-color: rgba(85, 85, 85, 0.8); /* Semi-transparent hover effect */
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  position: relative;
+  text-align: center;
+  color: #fff;
+  background-image: url(../logos/hero/luxe.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.tagline {
+  font-size: 4rem;
+  font-family: 'Dancing Script', cursive;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  padding: 20px;
+  position: absolute;
+  bottom: 120px; /* Adjust this value to move it up or down */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Add this to your existing CSS */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Target the hero section when the home page is loaded */
+body:target .hero {
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Target the hero section when the home link is clicked */
+#home:target ~ .hero {
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Product Categories Section */
+.product-categories {
+  padding: 50px 20px;
+  background-color: #fff;
+}
+
+.product-categories h2 {
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.category-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.category-container input[type="radio"] {
+  display: none;
+}
+
+.category-container label {
+  display: inline-block;
+  padding: 15px 25px;
+  font-weight: 600;
+  text-align: center;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.category-container label:hover {
+  color: #888;
+}
+
+.category-container input[type="radio"]:checked + label {
+  color: #000;
+  border-bottom: 2px solid #000;
+}
+
+.category-content {
+  display: none;
+  padding: 40px 0;
+}
+
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2,
+#tab3:checked ~ #content3,
+#tab4:checked ~ #content4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-item {
+  display: flex;
+  width: 100%;
+  max-width: 900px;
+  margin-bottom: 60px;
+  align-items: center;
+}
+
+.product-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.product-image, .product-info {
+  flex: 1;
+  padding: 0 20px;
+}
+
+.product-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  border-radius: 50px;
+}
+
+.product-item img:hover {
+  transform: scale(1.02);
+}
+
+.product-item h3 {
+  margin: 0 0 15px;
+  font-size: 1.4em;
+  color: #333;
+}
+
+.product-item p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Brands Section */
+.brands {
+  padding: 50px 20px;
+  background-color: #fafafa;
+  color: #555;
+}
+
+.brands h2 {
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.brands-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.brand {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.brand:hover {
+  transform: scale(1.1);
+}
+
+.brand img {
+  max-width: 70%;
+  max-height: 70%;
+  object-fit: contain;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  .tagline {
+      font-size: 2.5rem;
+  }
+
+  .category-container label {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 10px 0;
+  }
+
+  .product-item,
+  .product-item:nth-child(even) {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .product-image,
+  .product-info {
+      padding: 0;
+  }
+
+  .product-info {
+      margin-top: 20px;
+  }
+
+  .brand {
+      width: 80px;
+      height: 80px;
+  }
+  
+  .brands-grid {
+      gap: 15px;
+  }
+}
+
+footer {
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+}
